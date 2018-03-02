@@ -1,0 +1,97 @@
+<!-- Example row of columns -->
+
+<div class="row">
+<form action="/sup" method="get">
+<div ng-app ng-controller="myCtrl">
+    <div class="col-md-6">	
+		<div class="outerbox">
+		<table class="table">
+      <tbody>
+      <tr>
+	
+   	<!--  <h1 >{{msg}}<%= title %></h1>  -->       
+      <input ng-model="pre" style="text-align: right" type="text" class="form-control" id="a" placeholder="0" style="width: 500px;">
+      <!-- <td><input style="text-align: right" type="text" class="form-control" name="b" id="b" placeholder="0">
+      </td>-->
+      {{operator}}
+      </tr>
+      <tr>
+        <td  style="width: 90px;"><button ng-click='display(7)' type="button" class="btn btn-default btn-lg btn-block">7</button></td>
+        <td  style="width: 90px;"><button ng-click='display(8)' type="button"  class="btn btn-default btn-lg btn-block">8</button></td>
+        <td  style="width: 90px;"><button ng-click='display(9)' type="button"  class="btn btn-default btn-lg btn-block">9</button></td>
+        <td  style="width: 90px;"><button ng-click='displayOp("divide")' type="button" name="choice" value="divide" class="btn btn-default btn-lg btn-block">/</button></td>
+      </tr>
+      <tr>
+      
+        <td><button type="button" ng-click='display(4)' class="btn btn-default btn-lg btn-block">4</button></td>
+        <td><button type="button" ng-click='display(5)' class="btn btn-default btn-lg btn-block">5</button></td>
+        <td><button type="button" ng-click='display(6)' class="btn btn-default btn-lg btn-block">6</button></td>
+        <td><button type="button" ng-click='displayOp("multiply")' name="choice" value="multiply" class="btn btn-default btn-lg btn-block">*</button></td>
+      </tr>
+   	
+   	
+      <tr>
+        <td><button type="button" ng-click='display(1)' class="btn btn-default btn-lg btn-block">1</button></td>
+        <td><button type="button" ng-click='display(2)' class="btn btn-default btn-lg btn-block">2</button></td>
+        <td><button type="button" ng-click='display(3)' class="btn btn-default btn-lg btn-block">3</button></td>
+        <td><button type="button" ng-click='displayOp("subtract")' name="choice" value="subtract" class="btn btn-default btn-lg btn-block">-</button></td>
+      </tr>
+      <tr>
+        <td><button type="button" ng-click='display(0)' class="btn btn-default btn-lg btn-block">0</button></td>
+        <td><button type="button" ng-click='display(.)' class="btn btn-default btn-lg btn-block">.</button></td>
+        <td>
+        <!--  <div ng-app> -->
+        <button type="submit" name="choice" value="{{operator}}" class="btn btn-default btn-lg btn-block">=</button></td>
+        <td><button type="button" name="choice" ng-click='displayOp("add")' value="add" class="btn btn-default btn-lg btn-block" >+</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </div>	
+	</div>
+		<!-- log -->    
+    <div class="col-md-6">
+       <h1>{{msg}}</h1>
+       <div class="jumbotron">
+	   <input type="text" style="display: none"  name="num1" value="{{flag}}" >
+	   <h1 >{{flag}}</h1>
+	   <h3 ng-bind="operator"></h3>
+	   <input type="text" name="num2" style="display: none" value="{{flag1}}" >
+	   <h1>{{flag1}}</h1>
+	   <h1><%= title %></h1>
+       </div>
+       </div>
+       </div>
+       </form>
+</div>
+<script>
+
+function myCtrl($scope) {
+	//$var nums=[2];
+	$scope.operator="";
+	//if($scope.operator==""){
+    $scope.msg = "Log";   
+    var bool=true;
+    $scope.pre="";
+    $scope.flag="";
+    $scope.flag1="";
+    $scope.display=function(click){
+    
+    $scope.pre+=String(click);
+    
+    if(bool)
+    	$scope.flag+=String(click);
+    else{
+    	$scope.flag1+=String(click);
+    } };
+    
+    $scope.displayOp=function(op){
+    	$scope.operator=op;
+    	$scope.pre="";
+    	bool = false;
+    };
+        	
+    //}
+}
+	
+</script>

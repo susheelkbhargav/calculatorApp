@@ -1,0 +1,25 @@
+body {
+  padding: 10px;
+  font: 70px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+
+.outerbox {
+	margin: 100px auto;
+	padding: 30px 40px 9px;
+	
+	width: 500px;
+	height: auto;
+	
+	border-radius: 1px;
+}
+.btn-default {
+      background: #000;
+      color: #fff;
+   }
+.btn-default:hover {
+      background: #fff;
+      color: #000;
+   }
